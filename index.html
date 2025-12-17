@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GSTT Christmas Taxi Booking 2025/26</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px 25px 30px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+    }
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .section-title {
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+      font-size: 1.05rem;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="date"] {
+      width: 100%;
+      padding: 7px 8px;
+      margin-top: 4px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .col-50 {
+      flex: 1 1 48%;
+      min-width: 200px;
+    }
+    .checkbox-inline {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .checkbox-inline input[type="checkbox"] {
+      margin: 0;
+    }
+    .error {
+      color: #b00020;
+      font-size: 0.8rem;
+      margin-top: 3px;
+    }
+    .success {
+      color: #0a7d26;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .btn {
+      margin-top: 18px;
+      padding: 10px 16px;
+      background: #0072ce;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn:disabled {
+      background: #9bbce0;
+      cursor: not-allowed;
+    }
+    .required {
+      color: #b00020;
+    }
+    @media (max-width: 600px) {
+      .col-50 {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Christmas Taxi Booking Form 2025 / 2026</h1>
+
+    <form id="taxiForm" novalidate>
+
+      <h2 class="section-title">Person Authorising (Budget Holder)</h2>
+
+      <label>Department *</label>
+      <input type="text" id="department" required>
+
+      <label>Budget Holder Name *</label>
+      <input type="text" id="budgetHolderName" required>
+
+      <label>Cost Code *</label>
+      <input type="text" id="costCode" required>
+      <div id="costCodeError" class="error"></div>
+
+      <div class="checkbox-inline">
+        <input type="checkbox" id="budgetHolderConfirm" required>
+        <label style="font-weight: normal;">
+          I confirm this member of staff has no alternative means of travel during the Christmas/New Year period.
+        </label>
+      </div>
+      <div id="budgetHolderConfirmError" class="error"></div>
+
+      <h2 class="section-title">Staff Member Travelling</h2>
+
+      <label>Name *</label>
+      <input type="text" id="staffName" required>
+
+      <div class="row">
+        <div class="col-50">
+          <label>Mobile Number *</label>
+          <input type="tel" id="staffMobile" required>
+        </div>
+        <div class="col-50">
+          <label>Email Address *</label>
+          <input type="email" id="staffEmail" required>
+        </div>
+      </div>
+
+      <label>Site Based At *</label>
+      <input type="text" id="siteBasedAt" required>
+
+      <h2 class="section-title">Inbound Journey</h2>
+
+      <div class="row">
+        <div class="col-50">
+          <label>Travel Date *</label>
+          <input type="date" id="inboundDate" required>
+        </div>
+        <div class="col-50">
+          <label>Shift Start Time *</label>
+          <input type="time" id="inboundShiftStart" required>
+        </div>
+      </div>
+
+      <label>Collection Time *</label>
+      <input type="time" id="inboundCollectionTime" required>
+
+      <label>Pickup Address *</label>
+      <input type="text" id="inboundPickup" required>
+
+      <label>Drop-off Address *</label>
+      <input type="text" id="inboundDropoff" required>
+
+      <h2 class="section-title">Outbound Journey</h2>
+
+      <div class="row">
+        <div class="col-50">
+          <label>Travel Date *</label>
+          <input type="date" id="outboundDate" required>
+        </div>
+        <div class="col-50">
+          <label>Shift End Time *</label>
+          <input type="time" id="outboundShiftEnd" required>
+        </div>
+      </div>
+
+      <label>Collection Time *</label>
+      <input type="time" id="outboundCollectionTime" required>
+
+      <label>Pickup Address *</label>
+      <input type="text" id="outboundPickup" required>
+
+      <label>Drop-off Address *</label>
+      <input type="text" id="outboundDropoff" required>
+
+      <button type="submit" class="btn" id="submitBtn">Submit Booking</button>
+      <div id="formError" class="error"></div>
+      <div id="formSuccess" class="success"></div>
+    </form>
+  </div>
+
+  <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqVReTShE9lQKBQVAyzI88crXmbz5n1GiMrhfNTuc7-FOPFKmVhP1ecCKvaw0M2FNkTw/exec";
+
+    const validCostCodes = [];
+    for (let i = 10205031; i <= 10205099; i++) validCostCodes.push(String(i));
+
+    function validateCostCode() {
+      const val = document.getElementById("costCode").value.trim();
+      const error = document.getElementById("costCodeError");
+      if (!validCostCodes.includes(val)) {
+        error.textContent = "Invalid cost code.";
+        return false;
+      }
+      error.textContent = "";
+      return true;
+    }
+
+    document.getElementById("taxiForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!validateCostCode()) return;
+
+      const payload = {
+        department: department.value,
+        budgetHolderName: budgetHolderName.value,
+        costCode: costCode.value,
+        budgetHolderConfirm: budgetHolderConfirm.checked,
+        staffName: staffName.value,
+        staffMobile: staffMobile.value,
+        staffEmail: staffEmail.value,
+        siteBasedAt: siteBasedAt.value,
+        inboundDate: inboundDate.value,
+        inboundShiftStart: inboundShiftStart.value,
+        inboundCollectionTime: inboundCollectionTime.value,
+        inboundPickup: inboundPickup.value,
+        inboundDropoff: inboundDropoff.value,
+        outboundDate: outboundDate.value,
+        outboundShiftEnd: outboundShiftEnd.value,
+        outboundCollectionTime: outboundCollectionTime.value,
+        outboundPickup: outboundPickup.value,
+        outboundDropoff: outboundDropoff.value
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      formSuccess.textContent = "Booking submitted successfully.";
+      document.getElementById("taxiForm").reset();
+    });
+  </script>
+</body>
+</html>
